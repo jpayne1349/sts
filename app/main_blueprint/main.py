@@ -8,4 +8,4 @@ main_blueprint = Blueprint('main_blueprint', __name__)
 
 @main_blueprint.route('/')
 def homepage():
-    return render_template('homepage.html')
+    return render_template('/main/homepage.html')

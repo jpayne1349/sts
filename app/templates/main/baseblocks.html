@@ -6,7 +6,7 @@
 {%- block html %}
   <head>
     {%- block head %}
-    <title>{% block title %}{{title|default}}{% endblock title %}</title>
+    <title>{% block title %}{{STS|default}}{% endblock title %}</title>
 
     {%- block metas %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,12 +22,12 @@
     {%- endblock navbar %}
     {% block content -%}
     {%- endblock content %}
-    {% block footer -%}     <!-- i added this footer block -->
+    {% block footer -%}
     {%- endblock footer %}
 
     {% block scripts %}
   
-    <script src="/static/scripts/globalScripts.js"></script>
+    <script src="/static/scripts/globalScripts.js?v=01"></script>
 
     {%- endblock scripts %}
     {%- endblock body %}

@@ -1,10 +1,6 @@
 <!-- This will store our NAVBAR and FOOTER -->
 
-{% extends "baseblocks.html" %}
-
-
-{% block title %}Page Title{% endblock title %} <!-- title is usually in head? -->
-
+{% extends "/main/baseblocks.html" %}
 
 {% block head %}
 
@@ -13,7 +9,7 @@
 
 <link rel="icon" type="image/x-icon" href="{{ url_for('static' , filename='ic.ico') }}">
 
-<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/globalStyle.css') }}">
+<link rel= "stylesheet" type= "text/css" href= "/static/styles/globalStyle.css?v=01">
 
 
 {% endblock %}

@@ -9,29 +9,45 @@
     <title>{% block title %}{{STS|default}}{% endblock title %}</title>
 
     {%- block metas %}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0">
+
+    {# for safari theme colors #}
+    <meta name="theme-color" 
+      content="#79b3d2" 
+      media="(prefers-color-scheme: light)">
+
+    <meta name="theme-color" 
+      content="#79b3d2" 
+      media="(prefers-color-scheme: dark)">
+
     {%- endblock metas %}
 
     {%- block styles %}
     {%- endblock styles %}
     {%- endblock head %}
   </head>
+
   <body {% block body_attribs %}{% endblock body_attribs %}>
-    {% block body -%}
-    {% block navbar %}
-    {%- endblock navbar %}
-    {% block content -%}
-    {%- endblock content %}
-    {% block footer -%}
-    {%- endblock footer %}
+    <div id='page_wrapper'>
+      {% block body -%}
+      {% block navbar %}
+      {%- endblock navbar %}
+      {% block content -%}
+      
+      {%- endblock content %}
+      {% block footer -%}
+      {%- endblock footer %}
 
-    {% block scripts %}
-  
-    <script src="/static/scripts/globalScripts.js?v=01"></script>
+      {% block scripts %}
+    
+      <script src="/static/scripts/globalScripts.js?v=01"></script>
 
-    {%- endblock scripts %}
-    {%- endblock body %}
+      {%- endblock scripts %}
+      {%- endblock body %}
+    </div>
   </body>
+
 {%- endblock html %}
 </html>
 {% endblock doc -%}

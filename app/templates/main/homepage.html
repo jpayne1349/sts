@@ -2,19 +2,17 @@
 
 {% extends "/main/header_footer.html" %}
 
-{% block title %}STS | Home{% endblock title %} <!-- title is usually in head? -->
+{% block title %} STS | Home {% endblock title %}
 
 {% block head %}
-
-{{super()}} 
-
-<link rel= "stylesheet" type= "text/css" href= "/static/styles/main/homepageStyle.css?v=01">
-
-
+    {{super()}} 
+    <link rel= "stylesheet" type= "text/css" href= "/static/styles/main/homepageStyle.css?v=01">
 {% endblock %}
 
-{% block content %}
 
+
+{% block content %}
+{{ super() }}
 
 {% endblock %}
 

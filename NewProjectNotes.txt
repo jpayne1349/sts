@@ -2,7 +2,8 @@ A few notes for the startup of a new project.
 
 1. create a new virtual env with: python3 -m venv env
 
-2. getting into environment: source env/bin/activate
+2.   getting into environment mac/linux : source env/bin/activate
+2.1                           windows   : cd env/Scripts && activate
 
 3. installing dependencies, some needed right away, some not: pip install -r requirements.txt
     - creating the file is done via: pip freeze > requirements.txt

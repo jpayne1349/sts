@@ -1,0 +1,129 @@
+.block-content {
+    width: 100vw;
+    padding: 15px;
+}
+
+.inline-link {
+    color: var(--darkColor);
+}
+
+
+.web-service-svg-gear {
+        transform: rotateZ(72deg);
+        transform-origin: 337px 308px;
+}
+#web-service-svg {
+  width: 25vw;
+  height: 25vw;
+}
+#web-service-svg-taskbar {
+    fill:var(--mainColor);
+}
+#web-service-svg-gearteeth {
+    fill:rgb(51, 51, 51);
+}
+#web-service-svg-gearhub {
+    fill:var(--gray);
+}
+#web-service-svg-rightbubble {
+    fill:var(--messageBlue);
+}
+#web-service-svg-leftbubble {
+    fill:var(--messageGray);
+}
+#web-service-svg-monitor {
+    fill: var(--gray);
+}
+#web-service-svg-stand {
+    fill: var(--gray);
+}
+.service-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 25px 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgb(3 27 78 / 10%) 0px 1px 6px 1px;
+    min-height: 35vh;
+}
+.service-image-container {
+    align-self: flex-start;
+    transform: translateY(30px);
+}
+.service-information-row {
+  display: flex;
+}
+.service-information-row.justify-center {
+    justify-content: center;
+}
+.service-title {
+  text-align: center;
+  font-size: 6vw;
+}
+.service-information-col {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.service-list {
+  margin: 10px;
+}
+.service-list-item {
+    margin: 0px 0px 3px 4px;
+    font-size: 4vw;
+}
+.service-list-item.centered {
+    justify-content: center;
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 5vw;
+}
+.service-list-item.centered.no-flex {
+    display: block;
+    align-self: center;
+}
+.service-list-description {
+    margin: 0px 0px 3px 15px;
+  font-size: 3vw;
+}
+.form-request-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7vw;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: rgb(3 27 78 / 10%) 0px 1px 3px 1px;
+    margin-left: 5px;
+}
+#form-request-svg {
+    width: 4vw;
+    height: 3.5vw;
+    fill: var(--lightColor);
+}
+
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    
+    #web-service-svg {
+        width: 20vw;
+        height: 20vw;
+    }
+    .service-wrapper {
+        max-width: 45vw;
+    }
+    .service-title {
+        font-size: 3vw;
+    }
+    .service-list-item {
+        font-size: 2vw;
+    }
+    .service-list-description {
+        font-size: 1.5vw;
+    }
+    .service-list-item.centered {
+        font-size: 2.5vw;
+    }
+}

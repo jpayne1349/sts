@@ -1,12 +1,19 @@
 .block-content {
     width: 100vw;
     padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .inline-link {
     color: var(--darkColor);
+    text-decoration: underline;
+    cursor: pointer;
 }
-
+.inline-link:hover {
+    color: var(--lightColor);
+}
 
 .web-service-svg-gear {
         transform: rotateZ(72deg);
@@ -15,6 +22,7 @@
 #web-service-svg {
   width: 25vw;
   height: 25vw;
+  transform: translateY(80px);
 }
 #web-service-svg-taskbar {
     fill:var(--mainColor);
@@ -37,6 +45,28 @@
 #web-service-svg-stand {
     fill: var(--gray);
 }
+
+#it-consulting-svg {
+    width: 25vw;
+    height: 25vw;
+    transform: translateY(30px);
+}
+#consulting-svg-shirt {
+    fill: var(--darkColor);
+}
+#consulting-svg-wrench {
+    fill: var(--messageGray);
+}
+.consulting-svg-headphone {
+    fill: var(--gray);
+}
+#consulting-svg-gearteeth {
+    fill:rgb(51, 51, 51);
+}
+#consulting-svg-gearhub {
+    fill: var(--gray);
+}
+
 .service-wrapper {
     display: flex;
     flex-direction: column;
@@ -45,16 +75,21 @@
     border-radius: 10px;
     box-shadow: rgb(3 27 78 / 10%) 0px 1px 6px 1px;
     min-height: 35vh;
+    margin-bottom: 15px;
+    max-width: 570px;
+    margin-right: 15px;
 }
+
 .service-image-container {
     align-self: flex-start;
-    transform: translateY(30px);
+    
 }
 .service-information-row {
   display: flex;
 }
 .service-information-row.justify-center {
     justify-content: center;
+    align-items: center;
 }
 .service-title {
   text-align: center;
@@ -78,6 +113,7 @@
     display: flex;
     margin-bottom: 10px;
     font-size: 5vw;
+    text-align: center;
 }
 .service-list-item.centered.no-flex {
     display: block;
@@ -91,15 +127,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 7vw;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background-color: white;
     box-shadow: rgb(3 27 78 / 10%) 0px 1px 3px 1px;
     margin-left: 5px;
+    cursor: pointer;
+    align-self: center;
 }
 #form-request-svg {
-    width: 4vw;
-    height: 3.5vw;
+    width: 25px;
+    height: 25px;
     fill: var(--lightColor);
 }
 
@@ -108,11 +147,23 @@
 @media only screen and (min-width: 1200px) {
     
     #web-service-svg {
-        width: 20vw;
-        height: 20vw;
+        width: 15vw;
+        height: 15vw;
+    }
+    #it-consulting-svg {
+        width: 15vw;
+        height: 15vw;
+    }
+    #form-request-svg {
+        height: 40px;
+        width: 50px;
+    }
+    .form-request-icon {
+        height: 50px;
+        width: 50px;
     }
     .service-wrapper {
-        max-width: 45vw;
+        max-width: 55vw;
     }
     .service-title {
         font-size: 3vw;

@@ -19,6 +19,7 @@
 
   --mainColor: #347f6d ;
   --lightColor: #419f88;
+  --veryLightColor: #a4cfc2;
   --hintColor: #dde9e542;
   --darkColor: #2a6657;
   --veryDarkColor:#192c26;
@@ -82,8 +83,8 @@ svg {
   opacity: 0;
 }
 .logo-parenthesis {
-  stroke: #28749d;
-  fill: #28749d;
+  stroke: var(--veryDarkColor);
+  fill: var(--veryDarkColor);
   opacity: 0;
 }
 .logo-letter {
@@ -133,7 +134,7 @@ svg {
   right: 0px;
   background: #dde9e5;
   background: linear-gradient( 
-45deg, #dde9e5 0%, #dde9e5 15%, var(--lightColor) 85%, var(--mainColor) 100% );
+    45deg, #dde9e5 0%, #dde9e5 15%, var(--veryLightColor) 75%, var(--lightColor) 100% );
   transform: translateX(240px);
   transition: transform 0.5s ease;
   will-change: transform;
@@ -227,7 +228,7 @@ svg {
   user-select: none;
   cursor: pointer;
   border-bottom-left-radius: 10px;
-  box-shadow: #717171 1px 1px 2px;
+  box-shadow: #b7b7b7 1px 1px 2px;
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -257,14 +258,14 @@ svg {
   }
   .navbar-link-div:hover {
     background: #dae4e1;
-    background: linear-gradient(      0deg,   white 15% ,   #dae4e1 45%,      #65af9a  100%    );
+    background: linear-gradient(      0deg,   white 15% ,   #dae4e1 75%,  var(--veryLightColor) 100%    );
     cursor: default;
   }
   .navbar-sub-link-div {
     transform: translateY(72px);
     border-radius: 0px 0px 10px 10px;
-    background: #dae4e1;
-    background: linear-gradient(      180deg,  white 15% ,    #dae4e1 45%,      #65af9a  100%    );
+    background: white;
+    /* background: linear-gradient(      180deg,  white 15% ,    #dae4e1 75%, var(--veryLightColor)  100%    ); */
   }
   .navbar-sub-link-div:hover .navbar-sub-link:hover {
     backdrop-filter: brightness(0.95);
@@ -276,7 +277,7 @@ svg {
   .navbar-sub-link {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    box-shadow: #7e7e7e 0px 1px 3px;
+    box-shadow: #b7b7b7 1px 1px 2px;
     
   }
 

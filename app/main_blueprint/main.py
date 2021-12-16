@@ -9,3 +9,5 @@ main_blueprint = Blueprint('main_blueprint', __name__)
 @main_blueprint.route('/', strict_slashes=False)
 def homepage():
     return render_template('/main/homepage.html')
+
+

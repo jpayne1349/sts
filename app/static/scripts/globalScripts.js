@@ -1,7 +1,13 @@
-// LOGO - trying out an svg animation
+
+
+// TODO: build out some other block-content type stuff.
+        // use blocks like that as the pages, css transform or wahtever can be applied to the whole block.
+    // block can additions added via js, etc. 
+    // we need a block associated with each 'var' attribute that's able to be selected
 
 animateLogo();
 
+// uses gsap to type out company name.
 function animateLogo() {
   // create new timeline object from Class TimlineMax...
   var timeline = new TimelineMax({ repeat: -1 });
@@ -80,149 +86,52 @@ function animateLogo() {
   }
 }
 
-// Navbar - with some helpers in case of major screen size change
-// TODO: navbar screen size change-listeners is buggy, not high priority
+// global app state to be updated as views change. still in progress
+var app_state = {
+  'view':''
+};
 
-var viewport_width = 0;
-var media_query_setpoint = 1200;
+// set initial window state, (state_object, page title, url_path)
+window.history.replaceState(app_state, null, "");
 
-initNavbar();
+// function to be run on back button press
+window.onpopstate = page_state_push;
 
-// page load , setup navbar according to window width
-function initNavbar() {
-  if (window.location.pathname == "/" || window.location.pathname == "/home") {
-    let navbar_home_link = document.getElementById("navbar-home-link");
-    navbar_home_link.remove();
-  }
-
-  viewport_width = window.innerWidth;
-  if (viewport_width < 1200) {
-    let mobile = true;
-    let init = true;
-    navbarSetup(mobile, init);
-  } else {
-    let mobile = false;
-    let init = true;
-    navbarSetup(mobile, init);
-  }
-
-  window.addEventListener("resize", updateNavbar);
-}
-
-// on page resize, check if a change need to be made to listeners
-function updateNavbar() {
-  let new_viewport_width = window.innerWidth;
-
-  if (
-    new_viewport_width > media_query_setpoint &&
-    viewport_width > media_query_setpoint
-  ) {
-    return;
-  }
-  if (
-    new_viewport_width < media_query_setpoint &&
-    viewport_width < media_query_setpoint
-  ) {
-    return;
-  }
-  if (
-    new_viewport_width > media_query_setpoint &&
-    viewport_width < media_query_setpoint
-  ) {
-    // changed to desktop
-    console.log("navbar update to desktop");
-
-    let mobile = false;
-    let init = false;
-    navbarSetup(mobile, init);
-
-    viewport_width = new_viewport_width;
-    return;
-  }
-  if (
-    new_viewport_width < media_query_setpoint &&
-    viewport_width > media_query_setpoint
-  ) {
-    // changed to mobile
-    console.log("navbar update to mobile");
-
-    let mobile = true;
-    let init = false;
-    navbarSetup(mobile, init);
-
-    viewport_width = new_viewport_width;
-    return;
-  }
-}
-
-// setup listeners on navbar based on device type passed in
-function navbarSetup(mobile_bool, init_bool) {
-  if (mobile_bool) {
-    console.log("adding mobile listener");
-    let burger = document.getElementById("navbar-burger");
-    burger.addEventListener("click", burgerToggle);
-  }
-
-  function burgerToggle() {
-    let navbar_link_container = document.getElementById(
-      "navbar-link-container"
-    );
-
-    this.classList.toggle("show");
-    navbar_link_container.classList.toggle("show");
-  }
+navbarListeners();
+// setup listeners on the navbar buttons to change page state
+function navbarListeners() {
 
   let navbar_link_divs = document.getElementsByClassName("navbar-link-div");
 
   for (let link_div of navbar_link_divs) {
-    let var_attr = link_div.getAttribute("var");
-    if (var_attr == "services" || var_attr == "portfolio") {
-      if (mobile_bool) {
-        link_div.addEventListener("click", toggleSubLinks);
-      }
-
-      let navbar_link_div_children = link_div.children;
-      let arrow = navbar_link_div_children[2];
-      let sub_link_div = navbar_link_div_children[3];
-      let sub_links = sub_link_div.children;
-
-      // remove mobile listeners and classes
-      if (!init_bool && !mobile_bool) {
-        link_div.removeEventListener("click", toggleSubLinks);
-        if (link_div.classList.contains("show")) {
-          link_div.classList.remove("show");
-          sub_link_div.classList.remove("show");
-          arrow.classList.remove("show");
-        }
-      }
-
-      for (let sub_link of sub_links) {
-        sub_link.addEventListener("click", goToLink);
-      }
-
-      continue;
-    }
-
-    link_div.addEventListener("click", goToLink);
+    
+    link_div.addEventListener('click', page_state_push);
+    
   }
+}
 
-  function toggleSubLinks(evt) {
-    // attempt to stop an underlying click to go to url
-    evt.stopPropagation;
-    let navbar_link_div_children = this.children;
-    let arrow = navbar_link_div_children[2];
-    let sub_link_div = navbar_link_div_children[3];
+// change of page state by user clicking on page item
+function page_state_push() {
 
-    sub_link_div.classList.toggle("display");
-    setTimeout(() => sub_link_div.classList.toggle("show"), 100);
+  let button = this;
+  let next_state = button.getAttribute('var');
 
-    arrow.classList.toggle("show");
-    this.classList.toggle("show");
-  }
+  app_state.view = next_state;
 
-  function goToLink() {
-    let extension = this.getAttribute("var");
+  window.history.pushState(app_state, null, "");
 
-    window.location.href = extension;
-  }
+  console.log(app_state);
+
+}
+
+// change of page state with back or forward browser buttons
+function page_state_pop(event) {
+  console.log(event.state.view);
+}
+
+// needs to cause the css to change, trigger ajax calls if necessary, etc.
+function page_view_change() {
+
+
+
 }

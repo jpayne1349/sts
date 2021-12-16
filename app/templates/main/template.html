@@ -1,0 +1,17 @@
+{% extends "/main/header_footer.html" %} {% block title %} STS | Tempalte {%
+endblock title %} {% block head %} {{super()}}
+<link rel="stylesheet" type="text/css" href="/static/styles/main/templateStyle.css?v=01" />
+{% endblock %}
+
+
+{% block content %} {{ super() }}
+
+
+
+{% endblock %}
+
+{% block scripts %} {{super()}}
+
+<script src="/static/scripts/main/templateScripts.js?v=01"></script>
+
+{%- endblock scripts %}
